@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波浪Loding文字特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            /* 設定flex後 下層的float、clear和vertical-align沒有效果 */
+            display: flex;
+            /* 交叉軸的中心點對齊 */
+            align-items: center;
+            /* 水平線的置中對齊 */
+            justify-content: center;
+            /* 設定最小高度 */
+            min-height: 100vh;
+            /* 背景顏色 */
+            background: #000;
+        }
+
+        .wavy{
+            /* 用相對位子來定位 */
+            position: relative;
+            /* -webkit-box-reflect設置鏡像倒影 linear-gradient設置漸層 */
+            -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+        }
+
+        .wavy span{
+            /* 用相對位子來定位 */
+            position: relative;
+            /* inline-block會保留上下外邊距跟內邊距 */
+            display: inline-block;
+            /* 顏色 white 白色 */
+            color: #fff;
+            /* 字體大小 */
+            font-size: 2em;
+            /* 設置動畫 1秒 ease-in-out=緩慢開始和結束的動畫 infinite=持續的動畫 */
+            animation: animate 1s ease-in-out infinite;
+            /* 動畫延遲 計算 每個字一秒*/
+            animation-delay: calc(.1s*var(--i));
+        }
+
+        /* 動畫設定 */
+        @keyframes animate{
+            /* 本來的位子*/
+            0%{
+                transform:translateY(0px)
+            }
+            /* 負數是向上移動*/
+            20%{
+                transform: translateY(-24px)
+            }
+            /* 回到本來的位子*/
+            40%, 100%{
+                transform: translateY(0px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wavy">
+        <span style="--i:1">C</span>
+        <span style="--i:2">S</span>
+        <span style="--i:3">S</span>
+        <span style="--i:4">波</span>
+        <span style="--i:5">浪</span>
+        <span style="--i:6">讀</span>
+        <span style="--i:7">取</span>
+        <span style="--i:8">文</span>
+        <span style="--i:9">字</span>
+        <span style="--i:10">特</span>
+        <span style="--i:11">效</span>
+    </div>
+</body>
+</html>
