@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>炫彩流光按鈕</title>
+    <style>
+        body{
+         margin: 0;
+         padding: 0;
+         background: #000;  
+        }
+
+        a{
+            /* 使用絕對位子定位 將不被上層所影響 */
+            position: absolute;
+            /* 上方距離 50% */
+            top: 50%;
+            /* 左邊距離 50% */
+            left: 50%;
+            /* 位移  置中 */
+            transform: translate(-50%,-50%);
+            /* 寬度 200px */
+            width: 200px;
+            /* 高度 60px */
+            height: 60px;
+            /* 水平對齊 置中 */
+            text-align: center;
+            /* 行高 60px */
+            line-height: 60px;
+            /* 顏色 白*/
+            color: #fff;
+            /* 文字大小 24px */
+            font-size: 24px;
+            /* 設定所有字母都是大寫 */
+            text-transform: uppercase;
+            /* 將超連結的底線去除 */
+            text-decoration: none;
+            /* 字型 */
+            font-family: sans-serif;
+            /* 將寬高的作用範圍限制在border的範圍內 */
+            box-sizing: border-box;
+            /* 漸變背景 */
+            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+            /* 背景尺寸 */
+            background-size: 400%;
+            /* 框線圓角 */
+            border-radius: 30px;
+            /* z-index 當物件重疊在一起時 數字越小越下面 */
+            z-index: 1;
+        }
+
+        a:hover{
+            /* 動畫 8秒 線性 持續的 */
+            animation: animate 8s linear infinite;
+        }
+
+        /* 動畫設定 */
+        @keyframes animate{
+            0%{
+                /* 背景初始位子 0% */
+                background-position: 0%;
+            }
+            100%{
+                background-position: 400%;
+            }
+        }
+
+        a:before{
+            content: '';
+            /* 使用絕對位子定位 將不被上層所影響 */
+            position: absolute;
+            /* 上 */
+            top: -5px;
+            /* 左 */
+            left: -5px;
+            /* 右 */
+            right: -5px;
+            /* 下 */
+            bottom: -5px;
+            z-index: -1;
+            /* 漸變背景 */
+            background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+            /* 背景尺寸 */
+            background-size: 400%;
+            /* 變成圓角 */
+            border-radius: 40px;
+            /* 完全透明 - 0是透明 1是不透明 0.6是半透明 */
+            opacity: 0;
+            /* 轉場 0.5秒 */
+            transition: 0.5s;
+        }
+
+        a:hover:before{
+            /* 模糊濾鏡 */
+            filter: blur(20px);
+            /* 完全透明 */
+            opacity: 0;
+            /* 動畫 8秒 線性 持續的 */
+            animation: animate 8s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="#">Button</a>
+</body>
+</html>
