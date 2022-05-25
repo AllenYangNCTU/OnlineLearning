@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>霓虹燈方形動畫效果按鈕</title>
+    <style>
+        * {
+            /* 字型 微軟雅黑 sans-serif */
+            font-family: '微軟雅黑', sans-serif;
+             /* 將寬高的作用範圍限制在border的範圍內 */
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 設定flex */
+            display: flex;
+            /* 交叉軸的中心點對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 100vh*/
+            min-height: 100vh;
+            /* 直向排列 */
+            flex-direction: column;
+            /* 背景色 */
+            background: #050801;
+        }
+
+        a {
+            /* 用相對位子定位 */
+            position: relative;
+            /* 水平顯示列表 */
+            display: inline-block;
+            /* 內邊距 */
+            padding: 25px 30px;
+            /* 外邊距 */
+            margin: 50px 0;
+            /* 顏色 */
+            color: #03e9f4;
+            /* 去除超連結底線 */
+            text-decoration: none;
+            /* 超出的部分隱藏 */
+            overflow: hidden;
+            /* 轉場效果 0,5 */
+            transition: 0.5;
+            /* 文字的間距 */
+            letter-spacing: 4px;
+            /* -webkit-box-reflect設置鏡像倒影 下方1px linear-gradient設置漸層 */
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+        }
+
+        /* 使用選取器選擇1 */
+        a:nth-child(1) {
+            /* 色調旋轉濾鏡 */
+            filter: hue-rotate(290deg);
+        }
+        
+        /* 使用選取器選擇3 */
+        a:nth-child(3) {
+            /* 色調旋轉濾鏡 */
+            filter: hue-rotate(110deg);
+        }
+
+        a:hover {
+            /* 背景色 */
+            background: #03e9f4;
+            /* 顏色 */
+            color: #050801;
+            /* 陰影 */
+            box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4,
+        }
+
+        a span {
+            /* 使用絕對位子定位 */
+            position: absolute;
+            /* 以區塊方式呈現 */
+            display: block;
+        }
+
+        /* 按鈕上框線 */
+        a span:nth-child(1) {
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: -100%;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 2px;
+            /* 背景 線性漸層 */
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            /* 動畫 一秒 線性 持續的 */
+            animation: animate1 1s linear infinite;
+        }
+
+        /* 動畫效果 */
+        @keyframes animate1 {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* 按鈕右框線 */
+        a span:nth-child(2) {
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(92deg, transparent, #03e9f4);
+            animation: animate2 1s linear infinite;
+            animation-delay: 0.25s;
+        }
+
+        @keyframes animate2 {
+            0% {
+                top: -100%;
+            }
+
+            50%,
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* 按鈕下框線 */
+        a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: animate3 1s linear infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes animate3 {
+            0% {
+                right: -100%;
+            }
+
+            50%,
+            100% {
+                right: 100%;
+            }
+        }
+
+        /* 按鈕左框線 */
+        a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: animate4 1s linear infinite;
+            animation-delay: 0.75s;
+        }
+
+        @keyframes animate4 {
+            0% {
+                bottom: -100%;
+            }
+
+            50%,
+            100% {
+                bottom: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        NENO BUTTON
+    </a>
+    <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        NENO BUTTON
+    </a>
+    <a href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        NENO BUTTON
+    </a>
+</body>
+
+</html>
