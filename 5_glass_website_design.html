@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>glass website design</title>
+    <style>
+        *{
+            /* 外邊距 */
+            margin: 0;
+            /* 內邊距 */
+            padding: 0;
+            /* 將寬高限制在border的範圍內 */
+            box-sizing: border-box;
+            /* 顏色 白 */
+            color: #fff;
+            /* 清除清單前面的圓點 */
+            list-style: none;
+            /* 字型 sans-serif */
+            font-family: sans-serif;
+        }
+
+        .container{
+            /* 高 */
+            height: 100vh;
+            /* 寬 */
+            width: 100%;
+            /* 相對定位 */
+            position: relative;
+            /* 背景黑色 */
+            background: #000;
+            /* 設定flex */
+            display: flex;
+            /* 水平置中對齊 */
+            justify-content: center;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+        }
+
+        .container::before{
+            content: '';
+            /* 使用絕對位子定位 */
+            position: absolute;
+            /* 高 */
+            height: 330px;
+            /* 寬 */
+            width: 330px;
+            /* 框線 圓角 */
+            border-radius: 50%;
+            /* 背景漸層 */
+            background: linear-gradient(#08ffe6,#fcd200);
+            /* 位移 */
+            transform: translate(-490px,-150px);
+        }
+        
+        .container::after{
+            content: '';
+            /* 使用絕對位子定位 */
+            position: absolute;
+            /* 高 */
+            height: 330px;
+            /* 寬 */
+            width: 330px;
+            /* 框線 圓角 */
+            border-radius: 50%;
+            /* 背景漸層 */
+            background: linear-gradient(#fcd200,#fc2002);
+            /* 位移 */
+            transform: translate(490px,170px);
+        }
+
+        .container .ball-1{
+            /* 高 */
+            height: 30px;
+            /* 寬 */
+            width: 30px;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 背景 */
+            background: #04f504;
+            /* 位移 */
+            transform: translate(-250px,200px);
+            /* 使用絕對定位 */
+            position: absolute;
+        }
+
+        .container .ball-2{
+            /* 高 */
+            height: 70px;
+            /* 寬 */
+            width: 70px;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 背景 */
+            background: #08e2ff;
+            /* 位移 */
+            transform: translate(-10px,-220px);
+            /* 使用絕對定位 */
+            position: absolute;
+        }
+
+        .container .ball-3{
+            /* 高 */
+            height: 50px;
+            /* 寬 */
+            width: 50px;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 背景 */
+            background: #ffc404;
+            /* 位移 */
+            transform: translate(150px,250px);
+            /* 使用絕對定位 */
+            position: absolute;
+        }
+
+        .container .box{
+            /* 高 */
+            height: 86vh;
+            /* 寬 */
+            width: 75%;
+            /* 內邊距 */
+            padding: 0,20px;
+            /* 背景 */
+            background: rgba(255, 255, 255, 0.1);
+            /* z-index 當物件重疊在一起時 數字越小越下面 */
+            z-index: 10;
+            /* 設定flex */
+            display: flex;
+            /* 相對位子定位 */
+            position: relative;
+            /* 圓角 */
+            border-radius: 20px;
+            /* 白色框線 */
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            /* 濾鏡 模糊 */
+            backdrop-filter: blur(25px);
+            /* 外框陰影 */
+            box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.25);
+
+        }
+
+        .container .box nav{
+            /* 高 */
+            height: 7%;
+            /* 寬 */
+            width: 95%;
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 設定flex */
+            display: flex;
+            /* 交叉軸中心定位 */
+            align-items: center;
+            /* 平均分配寬度 兩邊貼齊邊緣 */
+            justify-content: space-between;
+            /* 外邊距 */
+            margin: 15px auto;
+            /* 內邊距 */
+            padding: 20px;
+        }
+
+        .container .box nav ul li{
+            /* 水平顯示列表 */
+            display: inline-block;
+            /* 內邊距 */
+            padding: 0 20px;
+        }
+
+        .container .box nav ul li a{
+            /* 字體大小 */
+            font-size: 13px;
+            /* 滑鼠游標改成手指 */
+            cursor: pointer;
+        }
+
+        .container .box nav ul li a:hover{
+            /* 顏色 */
+            color: #ffc404;
+        }
+
+        .container .box nav .logo{
+            /* 字體大小 */
+            font-size: 35px;
+            /* 顏色 */
+            color: #000;
+            /* 外邊距的上方 */
+            margin-top: 10px;
+            /* 外邊距的左方 */
+            margin-left: 20px;
+        }
+
+        .container .box .contains{
+            /* 設置一個flex */
+            display: flex;
+            /* 平均分配寬度 兩邊貼齊邊界 */
+            justify-content: space-between;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 80%;
+            /* 相對位子定位 */
+            position: relative;
+            /* 外邊距的上方 */
+            margin-top: 8%;
+            /* 內邊距的左方 */
+            padding-left: 80px;
+        }
+
+        .container .box .contains .section-1{
+            /* 絕對位子定位 */
+            position: absolute;
+            /* 外邊距的上方 */
+            margin-top: 70px;
+        } 
+
+        .container .box .contains .section-1 h1{
+            /* 字體大小 */
+            font-size: 75px;
+        }
+
+        .container .box .contains .section-1 h3{
+            /* 字體大小 */
+            font-size: 36px;
+        }
+
+        .container .box .contains .section-1 p{
+            /* 外邊距的上方 */
+            margin-top: 5px;
+        }
+
+        .container .box .contains .section-1 .button{
+            /* 外邊距的上方 */
+            margin-top: 50px;
+        }
+
+        .container .box .contains .section-1 .button a{
+            /* 內邊距 */
+            padding: 10px 20px;
+            /* 邊框 */
+            border: 1px solid #fff;
+            /* 滑鼠指標換成手指型 */
+            cursor: pointer;
+        }
+
+        .container .box .contains .section-1 .button a:hover{
+            /* 背景色 */
+            background: #fff;
+            /* 顏色 */
+            color: #000;
+        }
+
+        .container .box .contains .section-2 img{
+            /* 寬 */
+            width: 600px;
+            /* 高 */
+            height: auto;
+            /* X軸 位移 380px */
+            transform: translateX(380px);
+        }
+
+        span{
+            /* 顏色 */
+            color: #fc002e;
+            /* 字體大小 */
+            font-size: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball-1"></div>
+        <div class="ball-2"></div>
+        <div class="ball-3"></div>
+        <div class="box">
+            <nav>
+                <h3 class="logo"><span>!</span>LOGO</h3>
+                <ul>
+                    <li><a>HOME</a></li>
+                    <li><a>ABOUT</a></li>
+                    <li><a>SERVICES</a></li>
+                    <li><a>CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="contains">
+                <div class="section-1">
+                    <h1>Welcome</h1>
+                    <h3>To our <span>'</span>Fast Coder <span>'</span> channel</h3>
+                    <p>Please subscribe to our channel & press the bell icon</p>
+                    <div class="button">
+                        <a>More Info</a>
+                        <a>Contact us</a>
+                    </div>
+
+                </div>
+                <div class="section-2">
+                    <img src="#" alt="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
