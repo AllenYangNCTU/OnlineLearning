@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>captionsHover</title>
+    <style>
+        *{
+            /* 外邊距 */
+            margin: 0;
+            /* 內邊距 */
+            padding: 0;
+            /* 把寬高設定在border的範圍以內 */
+            box-sizing: border-box;
+            /* 字型 */
+            font-family: '微軟雅黑',sans-serif;
+        }
+
+        body{
+            /* 設定flex */
+            display: flex;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 最小高度 */
+            min-height: 100vh;
+        }
+
+        .container{
+            /* 相對位子定位 */
+            position: relative;
+            /* 設定flex */
+            display: flex;
+            /* 平均分配寬度 兩邊貼齊邊界 */
+            justify-content: space-between;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 寬 */
+            width: 1000px;
+        }
+
+        .container .box{
+            /* 相對位子定位 */
+            position: relative;
+            /* 寬 */
+            width: 450px;
+            /* 高 */
+            height: 320px;
+            /* 背景 */
+            background: #000;
+        }
+
+        .container .box .videoBx{
+            /* 決對位子 定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+        }
+        
+        .container .box .videoBx img{
+            /* 絕對位子定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+            /* 填滿方式 正中央 */
+            object-fit: cover;
+        }
+
+        /* 影片的話 */
+        /* .container .box .videoBx video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } */
+
+        .container .box .contentBx{
+            /* 決對位子定位 */
+            position: absolute;
+            /* 上 右 下 */
+            top: 40px; right: 40px; bottom: 40px;
+            /* 寬 */
+            width: 100%;
+            /* 背景 */
+            background: rgba(0, 0, 0, 0.95);
+
+            /* 轉場效果 */
+            transition: transform 0.5s;
+            /* 轉場方向 */
+            transform-origin: right;
+            /* 轉場位移 */
+            transform: scaleX(0);
+            /* 設定flex */
+            display: flex;
+            /* 水平置中對齊 */
+            justify-content: center;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+        }
+
+        .container .box .contentBx .content{
+            /* 相對位子定位 */
+            position: relative;
+            /* 內邊距 */
+            padding: 20px 60px;
+            /* 背景覆蓋程度 */
+            opacity: 0;
+        }
+        
+        .container .box:hover .contentBx .content{
+            /* 背景覆蓋程度 */
+            opacity: 1;
+            /* 轉場效果 */
+            transform: 0.5s;
+            /* 轉場延遲 */
+            transition-delay: 0.5s;
+        }
+
+        .container .box:hover .contentBx{
+            /* 轉場效果 */
+            transition: transform 0.5s;
+            /* 轉場方向 */
+            transform-origin: left;
+            /* 轉場位移 */
+            transform: scaleX(1);
+        }
+
+        .container .box .contentBx .content h2{
+            /* 顏色 */
+            color: #fff;
+            /* 粗體 */
+            font-weight: 500;
+            /* 外邊距下方 */
+            margin-bottom: 10px;
+        }
+
+        .container .box .contentBx .content p{
+            /* 顏色 */
+            color: #fff;
+            /* 粗體 */
+            font-weight: 300;
+        }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="videoBx"></div>
+            <!-- <video src="#" muted autoplay loop></video> -->
+            <img src="./img/6-1.jpg.crdownload" alt="替代影片1">
+            <div class="contentBx">
+                <div class="content">
+                    <h2>標題一</h2>
+                    <p>
+                        炊煙起了，我在門口等你。夕陽下了，我在山邊等你。
+                        葉子黃了，我在樹下等你。月兒灣了，我在十五等你。
+                        細雨起了，我在傘下等你。流水凍了，我在河畔等你。
+                        生命累了，我在天堂等你。我們老了，我在來生等你。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="videoBx"></div>
+            <!-- <video src="#" muted autoplay loop></video> -->
+            <img src="./img/6-2.jpg.crdownload" alt="替代影片2">
+            <div class="contentBx">
+                <div class="content">
+                    <h2>標題二</h2>
+                    <p>
+                        炊煙起了，我在門口等你。夕陽下了，我在山邊等你。
+                        葉子黃了，我在樹下等你。月兒灣了，我在十五等你。
+                        細雨起了，我在傘下等你。流水凍了，我在河畔等你。
+                        生命累了，我在天堂等你。我們老了，我在來生等你。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
