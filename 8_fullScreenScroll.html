@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全螢幕背景滾動淡出效果</title>
+</head>
+<style>
+    *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 把寬高設定在border裡面 */
+        box-sizing: border-box;
+        /* 字型 */
+        font-family: '微軟雅黑', sans-serif;
+    }
+    body{
+        /* 背景 */
+        background: #000;
+    }
+    #img{
+        /* 寬 */
+        width: 100%;
+        /* 高 */
+        height: 100%;
+    }
+    section{
+        /* 相對位子定位 */
+        position: relative;
+        /* 寬 */
+        width: 100%;
+        /* 最小高度 */
+        min-height: 100vh;
+        /* 設置flex */
+        display: flex;
+        /* 交叉軸中心對齊 */
+        align-items: center;
+        /* 水平線置中對齊 */
+        justify-content: center;
+        /* 超過的部分隱藏 */
+        overflow: hidden;
+        /* 內邊距 */
+        padding: 100px;
+    }
+    section img{
+        /* 絕對位子定位 */
+        position: absolute;
+        /* 上 */
+        top: 0;
+        /* 左 */
+        left: 0;
+        /* 寬 */
+        width: 100%;
+        /* 高 */
+        height: 100%;
+        /* 填滿元素的寬度及高度 */
+        object-fit: cover;
+        /* hover穿透上層點選到下層連結 */
+        pointer-events: none;
+    }
+    section h2 {
+        /* 相對位子定位 */
+        position: relative;
+        /* 顏色 */
+        color: #fff;
+        /* 文字大小 */
+        font-size: 3em;
+    }
+    section p {
+        /* 相對位子定位 */
+        position: relative;
+        /* 顏色 */
+        color: #fff;
+        /* 文字大小 */
+        font-size: 1.2em;
+    }
+</style>
+
+<body>
+    <section>
+        <!-- <video src="#" muted autoplay loop></video> -->
+        <!-- 因為沒有影片所以用圖片代替 -->
+        <img src="./img/8.jpg" alt="全螢幕背景滾動淡出效果" id="img">
+    </section>
+
+    <section>
+        <div class="content">
+            <h2>在別康橋</h2>
+            <p>
+                輕輕的我走了，<br>
+                正如我輕輕的來；<br>
+                我輕輕的招手，<br>
+                作別西天的雲彩。<br>
+                <br>
+                那河畔的金柳，<br>
+                是夕陽中的新娘；<br>
+                波光里的艷影，<br>
+                在我的心頭蕩漾。<br>
+                <br>
+                軟泥上的青荇，<br>
+                油油的在水底招搖；<br>
+                在康橋的柔波里，<br>
+                我甘心做一條水草！<br>
+                <br>
+                那榆蔭下的一潭，<br>
+                不是清泉，<br>
+                是天上虹 揉碎在浮藻間，<br>
+                沉澱著彩虹似的夢。<br>
+                <br>
+                尋夢？撐一支長蒿，<br>
+                向青草更青處漫溯，<br>
+                滿載一船星輝，<br>
+                在星輝斑斕里放歌。<br>
+                <br>
+                但我不能放歌，<br>
+                悄悄是別離的笙簫；<br>
+                夏蟲也為我沉默，<br>
+                沉默是今晚的康橋！<br>
+                <br>
+                悄悄的我走了，<br>
+                正如我悄悄的來；<br>
+                我揮一揮衣袖，<br>
+                不帶走一片雲彩。<br>
+            </p>
+        </div>
+    </section>
+    <script>
+        // 如果背景放的是影片
+        // let video = document.querySelector('video')
+        // window.addEventListener('scroll', function(){
+        // let value = 1 + window.scrollY / -600
+        //     video.style.opacity = value
+        // })
+
+        let img = document.querySelector('img')
+        // 當監測到滑動時
+        window.addEventListener('scroll', function(){
+            // 設定條件
+            let value = 1 + window.scrollY / -600
+            // 將圖片設置不透明度
+            img.style.opacity = value
+        })
+
+    </script>
+</body>
+
+</html>
