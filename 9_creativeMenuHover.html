@@ -7,82 +7,135 @@
     <title>創意選單懸停效果</title>
     <style>
         *{
+            /* 外邊距 */
             margin: 0;
+            /* 內邊距 */
             padding: 0;
+            /* 把寬高設定在border裡面 */
             box-sizing: border-box;
+            /* 字型 */
             font-family: sans-serif;
         }
         body{
+            /* 設定flex */
             display: flex;
+            /* 交叉軸中心對齊 */
             align-items: center;
+            /* 水平線中心對齊 */
             justify-content: center;
+            /* 最小高度 */
             min-height: 100vh;
+            /* 背景 */
             background: #0d0f1b;
         }
         ul{
+            /* 相對位子定位 */
             position: relative;
+            /* 設定flex */
             display: flex;
+            /* 直向排列 */
             flex-direction: column;
         }
         ul li{
+            /* 去除樣式 */
             list-style: none;
         }
         ul li::before{
+            /* 內容 */
             content: attr(data-text);
+            /* 絕對位置定位 */
             position: absolute;
+            /* 上 */
             top: 50%;
+            /* 左 */
             left: 50%;
+            /* 位移 */
             transform: translate(-50%, -50%);
+            /* 顏色 */
             color: #fff;
+            /* 字體大小 */
             font-size: 6rem;
+            /* 粗體 */
             font-weight: 700;
+            /* hover穿透上層點選到下層連結 */
             pointer-events: none;
+            /* 字距 */
             letter-spacing: 20px;
+            /* 不透明度 */
             opacity: 0;
+            /* 移動速度 */
             transition: 0.5s;
+            /* 強制不換行 */
             white-space: nowrap;
         }
         ul li:hover:before{
+            /* 不透明度 */
             opacity: 1;
+            /* 字距 */
             letter-spacing: 0;
         }
         ul li a{
+            /* 相對位子定位 */
             position: relative;
+            /* 不換行 但可設定寬高與留白邊界 */
             display: inline-block;
+            /* 內邊距 */
             padding: 6px 15px;
+            /* 去除文字樣式 */
             text-decoration: none;
+            /* 背景 */
             background: #2196f3;
+            /* 顏色 */
             color: #fff;
+            /* 設定英文全大寫 */
             text-transform: uppercase;
+            /* 字距 */
             letter-spacing: 2px;
+            /* 溢出的地方消失 */
             overflow: hidden;
+            /* 移動速度 */
             transition: 0.5s;
+            /* 設置元素Z的方向位置 */
             z-index: 1;
         }
 
         ul:hover li a{
+            /* 不透明度 */
             opacity: 0;
         }
         ul li a:hover{
+            /* 修改大小 */
             transform: scale(1.4);
             z-index: 100;
+            /* 背景 */
             background: #ff3f81;
+            /* 不透明度 */
             opacity: 1;
         }
         ul li a::before{
             content: '';
+            /* 絕對位置定位 */
             position: absolute;
+            /* 上 */
             top: 0;
+            /* 左 */
             left: -100px;
+            /* 寬 */
             width: 80%;
+            /* 高 */
             height: 100%;
+            /* 背景 */
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+            /* 修改大小 */
             transform: skew(35deg);
         }
 
         ul li a:hover:before{
+            /* 左邊 */
             left: calc(100% + 100px);
+            /* 移動速度 */
             transition: 0.5s;
+            /* 過渡延遲 */
             transition-delay: 0.2s;
         }
     </style>
