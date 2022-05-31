@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酷炫時鐘網頁特效</title>
+    <style>
+        *{
+            /* 外邊距 */
+            margin: 0;
+            /* 內邊距 */
+            padding: 0;
+            /* 把寬高設定在border裡面 */
+            box-sizing: border-box;
+            /* 字型 */
+            font-family: sans-serif;
+        }
+        body{
+            /* 設定一個flex彈性盒子 */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #091921;
+        }
+        .clock{
+            /* 寬 */
+            width: 350px;
+            /* 高 */
+            height: 350px;
+            /* 設定一個flex彈性盒子 */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 背景 */
+            background: url(./img/10clock.png);
+            /* 背景尺寸 完全覆蓋背景 */
+            background-size: cover;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 框線 */
+            border: 3px solid #091921;
+            /* 框線陰影 */
+            box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+                        0 15px 15px rgba(0, 0, 0, 0.05),
+                        inset 0 15px 15px rgba(0, 0, 0, 0.05);
+        }
+        .clock::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 寬 */
+            width: 15px;
+            /* 高 */
+            height: 15px;
+            /* 背景 */
+            background: #fff;
+            /* 時鐘的中心點點 */
+            border-radius: 50%;
+            /* 設置元素Z的方向位置 */
+            z-index: 10000;
+        }
+        .clock .hour,
+        .clock .min,
+        .clock .sec{
+            /* 絕對位置定位 */
+            position: absolute;
+        }
+        .clock .hour .hr{
+            /* 寬 */
+            width: 100px;
+            /* 高 */
+            height: 160px;
+        }
+        .clock .hour .mn{
+            /* 寬 */
+            width: 190px;
+            /* 高 */
+            height: 190px;
+            /* 背景 */
+            background: gray;
+        }
+        .clock .hour .sc{
+            /* 寬 */
+            width: 230px;
+            /* 高 */
+            height: 230px;
+        }
+        .hr .mn .sc{
+            /* 設定flex */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對其 */
+            justify-content: center;
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 圓角 */
+            border-radius: 50%;
+        }
+        .hr::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 寬 */
+            width: 8px;
+            /* 高 */
+            height: 80px;
+            /* 背景 */
+            background: #ff105e;
+            /* 設置元素Z的方向位置 */
+            z-index: 1;
+            /* 框線圓角 */
+            border-radius: 6px 6px 0 0;
+        }
+        .mn::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 寬 */
+            width: 4px;
+            /* 高 */
+            height: 90px;
+            /* 背景 */
+            background: #fff;
+            /* 設置元素Z的方向位置 */
+            z-index: 11;
+            /* 框線圓角 */
+            border-radius: 6px 6px 0 0;
+        }
+        .sc::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 寬 */
+            width: 2px;
+            /* 高 */
+            height: 150px;
+            /* 背景 */
+            background: #fff;
+            /* 設置元素Z的方向位置 */
+            z-index: 12;
+            /* 框線圓角 */
+            border-radius: 6px 6px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+</body>
+<script>
+    const deg = 6
+    const hr = document.querySelector('#hr')
+    const mn = document.querySelector('#mn')
+    const sc = document.querySelector('#sc')
+
+    setInterval(() => {
+        let day = new Date()
+        let hh = day.getHours() * 30 //一圈360度 12格 每格360/12 = 30
+        let mm = day.getMinutes() * deg//一圈360度 60格 每格6度
+        let ss = day.getSeconds() * deg//一圈360度 60格 每格6度
+        hr.style.transform = `rotateZ(${(hh) + (mm/12)}deg)` //時的刻度等於時針走過的度數加上分針的偏移量
+        mn.style.transform = `rotate(${mm}deg)`
+        sc.style.transform = `rotate(${ss}deg)`
+    })
+</script>
+</html>
