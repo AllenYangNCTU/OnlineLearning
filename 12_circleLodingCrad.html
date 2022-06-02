@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圓形進度卡</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 把寬高設定在border裡面 */
+        box-sizing: border-box;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定彈性盒子 */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #03a9f4;
+        }
+
+        .box{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 寬 */
+            width: 300px;
+            /* 高 */
+            height: 400px;
+            /* 設定彈性盒子 */
+            display: flex;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 垂直排列 */
+            flex-direction: column;
+            /* 背景顏色 */
+            background-color: #fff;
+            /* 陰影 */
+            box-shadow: 0 30px 60px rgba(0 , 0, 0, 0.2);
+        }
+
+        .box .percent{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 寬 */
+            width: 150px;
+            /* 高 */
+            height: 150px;
+        }
+        .box .percent svg{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 寬 */
+            width: 150px;
+            /* 高 */
+            height: 150px;
+        }
+        .box .percent svg circle{
+            /* 寬 */
+            width: 150px;
+            /* 高 */
+            height: 150px;
+            /* 不設置內部顏色 */
+            fill: none;
+            /* 邊框粗細 */
+            stroke-width: 10;
+            /* 邊框 */
+            stroke: #000;
+            /* 改變大小 */
+            transform: translate(5px, 5px);
+            /* 虛線效果 */
+            stroke-dasharray: 440;
+            /* 虛線推移 */
+            stroke-dashoffset: 440;
+        }
+
+        .box .percent svg circle:nth-child(1){
+            /* 虛線推移 */
+            stroke-dashoffset: 0;
+            /* 虛線顏色 */
+            stroke: #f3f3f3;
+        }
+        .box .percent svg circle:nth-child(2){
+            /* 虛線推移 */
+            stroke-dashoffset: calc(440 -(440 * 87)/100);
+            /* 虛線顏色 */
+            stroke: #03a9f4;
+        }
+        .box .percent .number{
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+            /* 設定一個flex */
+            display: flex;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 顏色 */
+            color: #111;
+        }
+        .box .percent .number h2{
+            /* 字體大小 */
+            font-size: 48px;
+        }
+        .box .percent .number span{
+            /* 字體大小 */
+            font-size: 24px;
+        }
+        .box .text{
+            /* 內邊距 */
+            padding: 10px 0 0;
+            /* 顏色 */
+            color: #999;
+            /* 粗體 */
+            font-weight: 700;
+            /* 字距 */
+            letter-spacing: 1px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="percent">
+            <!-- svg的tag=形狀 -->
+            <svg>
+                <circle cx='70' cy='70' r='70'></circle>
+                <circle cx='70' cy='70' r='70'></circle>
+            </svg>
+            <div class="number">
+                <h2>87<span>%</span></h2>
+            </div>
+        </div>
+        <h2 class="text">Progress</h2>
+    </div>
+</body>
+</html>
