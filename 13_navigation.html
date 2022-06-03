@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>粘性導航網頁特效</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 把寬高設定在border裡面 */
+        box-sizing: border-box;
+        /* 自動換行 */
+        word-wrap: break-word;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 背景 */
+            background: #000;
+            /* 最小高度 */
+            min-height: 200vh;
+        }
+
+        header{
+            /* 固定位子 */
+            position: fixed;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 100%;
+            /* 設定flex */
+            display: flex;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+            /* 等距 兩邊靠邊對齊 */
+            justify-content: space-between;
+            /* 轉場 */
+            transition: 0.6s;
+            padding: 40px 100px;
+            /* z軸位子 */
+            z-index: 2;
+        }
+
+        header.sticky{
+            /* 內邊距 */
+            padding: 5px 100px;
+            /* 背景 */
+            background: #fff;
+        }
+
+        header .logo{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 粗體 */
+            font-weight: 700;
+            /* 顏色 */
+            color: #fff;
+            /* 去除樣式 */
+            text-decoration: none;
+            /* 文字大小 */
+            font-size: 2em;
+            /* 全大寫 */
+            text-transform: uppercase;
+            /* 字距 */
+            letter-spacing: 2px;
+            /* 過渡 */
+            transition: 0;
+        }
+
+        header ul {
+            /* 相對位置對齊 */
+            position: relative;
+            /* 設定flex */
+            display: flex;
+            /* 水平置中對齊 */
+            justify-content: center;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+        }
+
+        header ul li{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 去除前方點點樣式 */
+            list-style: none;
+        }
+        
+        header ul li a{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 外邊距 */
+            margin: 0 15px;
+            /* 預設值 */
+            text-decoration: none;
+            /* 顏色 */
+            color: #fff;
+            /* 字距 */
+            letter-spacing: 2px;
+            /* 粗體 */
+            font-weight: 500px;
+            /* 過渡 */
+            transition: 0.5s;
+        }
+
+        .banner{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100vh;
+            /* 背景 */
+            background: url(./img/13.jpg);
+            /* 背景大小 */
+            background-size: cover;
+        }
+        header.sticky.logo,
+        header.sticky ul li a{
+            /* 顏色 */
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <ul>
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">關於</a></li>
+            <li><a href="#">服務</a></li>
+            <li><a href="#">作品</a></li>
+            <li><a href="#">聯繫</a></li>
+        </ul>
+    </header>
+    <section class="banner"></section>
+    <script>
+        window.addEventListener('scroll', () => {
+            let header = document.querySelector('header')
+            header.classList.toggle('sticky', window.scrollY > 0)
+        })
+    </script>
+</body>
+</html>
