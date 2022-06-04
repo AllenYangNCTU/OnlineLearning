@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 把寬高設定在border裡面 */
+        box-sizing: border-box;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定彈性盒子 */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #000;
+        }
+
+        .container{
+            /* 相對位置定位 */
+            position: relative;
+            /* 設定彈性盒子 */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 垂直排列 */
+            flex-direction: column;
+        }
+
+        .container a{
+            /* 相對位置定位 */
+            position: relative;
+            /* 寬 */
+            width: 150px;
+            /* 高 */
+            height: 55px;
+            /* 文字置中對齊 */
+            text-align: center;
+            /* 行高 */
+            line-height: 55px;
+            /* 外邊距 */
+            margin: 10PX;
+            /* 字母大寫 */
+            text-transform: uppercase;
+            /* 背景 */
+            background: #191919;
+            /* 顏色 */
+            color: #fff;
+            /* 去除底線 */
+            text-decoration: none;
+            /* 字距 */
+            letter-spacing: 2px;
+            /* 超出的地方消失 */
+            overflow: hidden;
+        }
+
+        .container a span{
+            /* 相對位置定位 */
+            position: relative;
+            /* 以區塊的方式呈現 */
+            display: block; 
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+            /* Z軸的位子 */
+            z-index: 1000;
+            /* 動態效果 ease-in 緩慢的開始*/
+            transition: 0s ease-in; 
+        }
+
+        .container a:hover span{
+            /* 動態效果 */
+            transition: 0.4s ease-in;
+            /* 動態效果 */
+            transform: translateY(-100%);
+        }
+
+        .container a::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 定位元素下外邊距邊界與其包含塊下邊界之間的偏移，非定位元素設置此屬性無效 */
+            bottom: -250px;
+            /* 左 */
+            left: 50%;
+            /* 位移 */
+            transform: translateX(-50%);
+            /* 寬 */
+            width: 250px;
+            /* 高 */
+            height: 250px;
+            /* 背景 */
+            background: #2299ff;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 位移 */
+            transition: 0.4s ease-in;
+        }
+
+        .container a:hover::before{
+            /* 定位元素下外邊距邊界與其包含塊下邊界之間的偏移位子 */
+            bottom: -150px;
+        }
+
+        .container a:nth-child(2)::before{
+            /* 偏移位子 */
+            bottom: 60px;
+        }
+
+        .container a:nth-child(2):hover::before{
+            /* 偏移位子 */
+            bottom: -40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="#">
+            <span>Button</span>
+            <span>Button</span>
+        </a>
+        <a href="#">
+            <span>Button</span>
+            <span>Button</span>
+        </a>
+    </div>
+</body>
+</html>
