@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定一個flex */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 背景 */
+            background: #010615;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 換行 */
+            flex-wrap: wrap;
+        }
+
+        .box{
+            /* 相對位置對齊 */
+            position: relative;
+            /* 寬 */
+            width: 300px;
+            /* 高 */
+            height: 400px;
+            /* 設定一個flex */
+            display: flex;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 背景 */
+            background: #060c21;
+            /* 最小高度 */
+            margin: 60px 40px;
+        }
+
+        .box::before{
+            content: '';
+            /* 絕對位置對齊 */
+            position: absolute;
+            /* 上 */
+            top: -2px;
+            /* 左 */
+            left: -2px;
+            /* 右 */
+            right: -2px;
+            /* 下 */
+            bottom: -2px;
+            /* 背景 */
+            background: #fff;
+            /* z軸位子 */
+            z-index: -1;
+        }
+
+        .box::after{
+            content: '';
+            /* 絕對位置對齊 */
+            position: absolute;
+            /* 上 */
+            top: -2px;
+            /* 左 */
+            left: -2px;
+            /* 右 */
+            right: -2px;
+            /* 下 */
+            bottom: -2px;
+            /* 背景 */
+            background: #fff;
+            /* 模糊 */
+            filter: blur(40px);
+            /* z軸位子 */
+            z-index: -2;
+        }
+
+        .box:nth-child(1)::before,
+        .box:nth-child(1)::after{
+            /* 背景 */
+            background: linear-gradient(235deg, #89ff00, #010615, #00bcd4);
+        }
+        .box:nth-child(2)::before,
+        .box:nth-child(2)::after{
+            /* 背景 */
+            background: linear-gradient(235deg, #ff005e, #010615, #fbff00);
+        }
+        .box:nth-child(3)::before,
+        .box:nth-child(3)::after{
+            /* 背景 */
+            background: linear-gradient(235deg, #772aff, #010615, #2196f3);
+        }
+
+        .box .glass{
+            /* 絕對位置對齊 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 50%;
+            /* 高 */
+            height: 100%;
+            /* 區塊方式呈現 */
+            display: block;
+            /* 背景 */
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .box .content{
+            /* 內邊距 */
+            padding: 20px;
+            /* 顏色 */
+            color: #fff;
+            /* 行高 */
+            line-height: 1.3;
+        }
+
+        h2{
+            /* 字體大小 */
+            font-size: 15px;
+        }
+
+        p{
+            /* 字體大小 */
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="glass">
+            <div class="content">
+                <h2>星空下草地上</h2>
+                <br>
+                <p> 熏風　如薄扇下透出般熙和，<br>
+                    拂在盛夏沉醉的晚上<br>
+                    我在紫藤下納涼。<br>
+                    <br>
+                    遙望著河漢<br>
+                    揣摩　七夕鵲橋的幽會，<br>
+                    一個真正千載的難得！<br>
+                    <br>
+                    這甜也蜜似的銀夜，<br>
+                    歡喜是我　憂愁是我<br>
+                    和牽牛織女有著默契。<br>
+                    <br>
+                    聆聽梔子吮吸雨露，<br>
+                    或許睡上更美。<br>
+                    你讓我睡，我這就睡，<br>
+                    夢裡夢外撲朔迷離。<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="glass">
+            <div class="content">
+                <h2>星空下草地上</h2>
+                <br>
+                <p> 熏風　如薄扇下透出般熙和，<br>
+                    拂在盛夏沉醉的晚上<br>
+                    我在紫藤下納涼。<br>
+                    <br>
+                    遙望著河漢<br>
+                    揣摩　七夕鵲橋的幽會，<br>
+                    一個真正千載的難得！<br>
+                    <br>
+                    這甜也蜜似的銀夜，<br>
+                    歡喜是我　憂愁是我<br>
+                    和牽牛織女有著默契。<br>
+                    <br>
+                    聆聽梔子吮吸雨露，<br>
+                    或許睡上更美。<br>
+                    你讓我睡，我這就睡，<br>
+                    夢裡夢外撲朔迷離。<br>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="glass">
+            <div class="content">
+                <h2>星空下草地上</h2>
+                <br>
+                <p> 熏風　如薄扇下透出般熙和，<br>
+                    拂在盛夏沉醉的晚上<br>
+                    我在紫藤下納涼。<br>
+                    <br>
+                    遙望著河漢<br>
+                    揣摩　七夕鵲橋的幽會，<br>
+                    一個真正千載的難得！<br>
+                    <br>
+                    這甜也蜜似的銀夜，<br>
+                    歡喜是我　憂愁是我<br>
+                    和牽牛織女有著默契。<br>
+                    <br>
+                    聆聽梔子吮吸雨露，<br>
+                    或許睡上更美。<br>
+                    你讓我睡，我這就睡，<br>
+                    夢裡夢外撲朔迷離。<br>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
