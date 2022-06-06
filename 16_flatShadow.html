@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定一個flex */
+            display: flex;
+            /* 交叉軸置中對齊 */
+            align-items: center;
+            /* 水平線中心置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #00fff3;
+        }
+
+        #text{
+            /* 相對位置定位 */
+            position: relative;
+            /* 顏色 */
+            color: #fff;
+            /* 字體大小 */
+            font-size: 9em;
+            /* 粗體 */
+            font-weight: 700;
+            /* 不設輪廓線 */
+            outline: none;
+            /* 文字置中 */
+            text-align: center;
+            /* 文字陰影 */
+            text-shadow: 1px 1px 0px #01d1d3;
+        }
+    </style>
+</head>
+<body>
+    <div id="text" contenteditable>自行輸入內容</div>
+    <script>
+        let text = document.getElementById('text')
+        let shadow = ''
+        for (let i =0; i < 50; i++) {
+            shadow += (shadow ? ',' : '') + `${i*1}px ${i*1}px 0px #01d1d3`
+        }
+        text.style.textShadow = shadow
+    </script>
+</html>
