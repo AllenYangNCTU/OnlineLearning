@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定一個flex */
+            display: flex;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #191919;
+            /* 溢出的部分消失 */
+            overflow: hidden;
+            /* 垂直排列 */
+            flex-direction: column;
+        }
+
+        label{
+            /* 相對位置定位 */
+            position: relative;
+            /* 寬 */
+            width: 240px;
+            /* 高 */
+            height: 80px;
+            /* 將指標換成手指 */
+            cursor: pointer;
+            /* 外邊距 */
+            margin: 20px 0;
+        }
+
+        label input{
+            /* 定義透明 */
+            opacity: 0;
+        }
+
+        label .check{
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 滑鼠指標 => 手指 */
+            cursor: pointer;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+            /* 背景 */
+            background: #101010;
+            /* 圓角 */
+            border-radius: 40px;
+            /* 陰影 */
+            box-shadow: 0 0 0 4px #101010;
+        }
+
+        label .check::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: calc(50% - 4px);
+            /* 左 */
+            left: -30px;
+            /* 寬 */
+            width: 8px;
+            /* 高 */
+            height: 8px;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 背景 */
+            background: #f00;
+            /* 動畫 */
+            transition: 0.5s;
+            /* 陰影 */
+            box-shadow: 0 0 5px #f00,
+                        0 0 10px #f00,
+                        0 0 20px #f00,
+                        0 0 40px #f00,
+                        0 0 80px #f00;
+        }
+
+        label input:checked ~ .check::before{
+            /* 背景 */
+            background: #101010;
+            /* 無陰影 */
+            box-shadow: none;
+        }
+
+        label .check::after{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: calc(50% - 4px);
+            /* 右 */
+            right: -30px;
+            /* 寬 */
+            width: 8px;
+            /* 高 */
+            height: 8px;
+            /* 圓角 */
+            border-radius: 50%;
+            /* 無陰影 */
+            box-shadow: none;
+            /* 動畫 */
+            transition: 0.5s;
+            /* 背景 */
+            background: #101010;
+        }
+        
+        label input:checked ~ .check::after{
+            /* 背景 */
+            background: #0f0;
+            /* 陰影 */
+            box-shadow: 0 0 5px #0f0,
+                        0 0 10px #0f0,
+                        0 0 20px #0f0,
+                        0 0 40px #0f0,
+                        0 0 80px #0f0;
+        }
+
+        label .btn{
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 120px;
+            /* 高 */
+            height: 80px;
+            /* 圓角 */
+            border-radius: 40px;
+            /* 背景 */
+            background: #333;
+            /* 動畫 */
+            transition: 0.5s;
+            /* 外框陰影 */
+            box-shadow: inset 0 -20px 15px #292929,
+                        inset 0 20px 15px #292929;
+        }
+
+        label .btn::before{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 52px;
+            /* 高 */
+            height: 80px;
+            /* 背景 */
+            background:#252525;
+            /* 框線 上左 圓角 */
+            border-top-left-radius: 80px;
+            /* 框線 下左 圓角 */
+            border-bottom-left-radius: 80px;
+            /* 模糊效果 */
+            filter: blur(2);
+        }
+
+        label .btn::after{
+            content: '';
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 右 */
+            right: 0;
+            /* 寬 */
+            width: 52px;
+            /* 高 */
+            height: 80px;
+            /* 背景 */
+            background:#252525;
+            /* 框線 上右 圓角 */
+            border-top-right-radius: 80px;
+            /* 框線 下右 圓角 */
+            border-bottom-right-radius: 80px;
+            /* 模糊效果 */
+            filter: blur(2);
+        }
+
+        label input:checked ~ .btn{
+            /* 左 */
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <label>
+        <input type="checkbox" name="">
+        <span class="check"></span>
+        <span class="btn"></span>
+    </label>
+    <label>
+        <input type="checkbox" name="" checked>
+        <span class="check"></span>
+        <span class="btn"></span>
+    </label>
+</body>
+</html>
