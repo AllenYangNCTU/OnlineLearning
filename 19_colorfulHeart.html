@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+        body{
+            /* 高 */
+            height: 100vh;
+            /* 背景 */
+            background: #000;
+            /* 超出的地方消失 */
+            overflow: hidden;
+        }
+        span{
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 背景 */
+            background: url(./img/19_heart.png);
+            /* 滑鼠指標換成手指型狀 */
+            pointer-events: none;
+            /* 寬 */
+            width: 100px;
+            /* 高 */
+            height: 100px;
+            /* 背景尺寸 */
+            background-size: cover;
+            /* 位移 */
+            transform: translate(-50%, -50%);
+            /* 動畫 兩秒 線性 持續的 */
+            animation: animate 2s linear infinite;
+        }
+
+        @keyframes animate{
+            0%{
+                /* 位移 */
+                transform: translate(-50%, -50%);
+                /* 透明度 */
+                opacity: 1;
+                /* 色調旋轉濾淨 */
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                /* 位移 */
+                transform: translate(-50%, -1000%);
+                /* 透明度 */
+                opacity: 0;
+                /* 色調旋轉濾淨 */
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 監聽滑鼠移動的動作
+        document.addEventListener('mousemove', (e) => {
+            let body = document.querySelector('body');
+            let heart = document.createElement('span');
+            let x = e.offsetX
+            let y = e.offsetY
+            heart.style.left = x + 'px'
+            heart.style.top = y + 'px'
+            let size = Math.random() * 100
+            heart.style.width = size + 'px'
+            heart.style.height = size + 'px'
+            body.appendChild(heart)
+            setTimeout(() => {
+                heart.remove()
+            }, 2000)
+        });
+    </script>
+</body>
+</html>
