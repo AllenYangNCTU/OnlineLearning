@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+        /* 外邊距 */
+        margin: 0;
+        /* 內邊距 */
+        padding: 0;
+        /* 字型 */
+        font-family: sans-serif;
+        }
+
+        body{
+            /* 設定一個flex */
+            display: flex;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 最小高度 */
+            min-height: 100vh;
+            /* 背景 */
+            background: #111;
+        }
+
+        .card{
+            /* 相對位置定位 */
+            position: relative;
+            /* 寬 */
+            width: 300px;
+            /* 高 */
+            height: 400px;
+            /* 製作3D動畫 */
+            transform-style: preserve-3d;
+        }
+
+        .card .face{
+            /* 絕對位置定位 */
+            position: absolute;
+            /* 上 */
+            top: 0;
+            /* 左 */
+            left: 0;
+            /* 寬 */
+            width: 100%;
+            /* 高 */
+            height: 100%;
+            /* 製作3D動畫 */
+            transform-style: preserve-3d;
+           /* 設定一個flex */
+           display: flex;
+            /* 交叉軸中心對齊 */
+            align-items: center;
+            /* 水平線置中對齊 */
+            justify-content: center;
+            /* 動畫效果 2秒 緩慢的開始與結束*/
+            transition: 2s ease-in-out;
+            /* 背面 影藏 */
+            backface-visibility: hidden;
+            /* 動畫 透視 以Y軸旋轉 */
+            transform: perspective(500px) rotateY(0deg);
+            }
+
+        .card .face.front{
+            /* 背景 */
+            background: #ff0;
+        }
+
+        .card:hover .face.front{
+        /* 動畫 透視 以Y軸旋轉 */
+        transform: perspective(500px) rotateY(180deg);
+        }
+
+        .card .face.back{
+            /* 背景 */
+            background: #3bc2ff;
+            /* 顏色 */
+            color: #fff;
+            /* 動畫 透視 以Y軸旋轉 */
+            transform: perspective(500px) rotateY(180deg);
+        }
+        
+        .card:hover .face.back{
+            /* 動畫 透視 以Y軸旋轉 */
+            transform: perspective(500px) rotateY(360deg);
+        }
+        
+        .card .face h2{
+            /* 字體大小 */
+            font-size: 4em;
+            /* 大寫 */
+            text-transform: uppercase;
+            /* 動畫 透視 以Z軸平移 */
+            transform: perspective(500px) translateZ(50px);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="face front">
+            <h2>Front</h2>
+        </div>
+        <div class="face back">
+            <h2>Back</h2>
+        </div>
+    </div>
+</body>
+</html>
