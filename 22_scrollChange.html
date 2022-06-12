@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll進行SVG圖像轉換</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 把寬高設定在boder裡面 */
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body{
+            min-height: 2000px;
+        }
+
+        .banner{
+            /* 固定位子 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .banner video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 圖片填滿 */
+            object-fit: cover;
+        }
+
+        .banner #bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff url(./img/22_heart.svg);
+            background-repeat: no-repeat;
+            background-size: 100px;
+            /* 初始位子 */
+            background-position: center;
+            /* 圖層混合模式 */
+            mix-blend-mode: screen;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <video muted autoplay loop src="./img/22.mp4"></video>
+        <div id="bg"></div>
+    </div>
+
+    <script>
+        // 設定一個變數 bg = id為'bg'的內容
+        let bg = document.getElementById('bg');
+        // 監聽scroll這個動作 執行function
+        window.addEventListener('scroll', function(){
+            // 設定變數value 是 scrollY移動時
+            let value = window.scrollY;
+            // 背景的尺寸會改變
+            bg.style.backgroundSize = 100 + value*2 + 'px';
+        });
+    </script>
+</body>
+</html>
