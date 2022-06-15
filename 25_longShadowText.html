@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>長陰影網頁特效</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #00fff3;
+        }
+
+        #text{
+            position: relative;
+            color: #fff;
+            font-size: 9em;
+            /* 去除輪廓 */
+            outline: none;
+            text-align: center;
+            text-shadow: 1px 1px 0px #01d1d3;
+        }
+    </style>
+</head>
+<body>
+    <!-- contenteditable設定為可以被編輯 -->
+    <div id="text" contenteditable="">text</div>
+    <script>
+        // 變數text 的內容為id text的內容
+        let text = document.getElementById('text');
+        // 設定一個變數shadow為空字串
+        let shadow = '';
+
+        // 使用迴圈去跑陰影的長度 最大值是499
+        for (let i = 0; i < 500; i++) {
+            // 計算參數後放到變數shadow內
+            shadow += (shadow ? ',' : '') + `${i*1}px ${i*1}px 0px #01d1d3`
+        };
+        // style的text-shadow內容改為變數shadow的內容
+        text.style.textShadow = shadow ;
+    </script>
+</body>
+</html>
